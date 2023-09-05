@@ -20,6 +20,8 @@ public class Client {
     private String licenseNumber;
     private Date dateObtention;
 
+    public Client(){}
+
     public Client(int id, String firstName, String lastName, Date birthDate, String licenseNumber, Date dateObtention) {
         this.id = id;
         this.firstName = firstName;
