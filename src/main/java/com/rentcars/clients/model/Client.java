@@ -8,7 +8,7 @@ import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Entity
-public class Clients {
+public class Client {
     @Id@GeneratedValue(strategy= GenerationType.AUTO)
     private int id;
     @Size(min = 3, max = 25)
@@ -20,7 +20,7 @@ public class Clients {
     private String licenseNumber;
     private Date dateObtention;
 
-    public Clients(int id, String firstName, String lastName, Date birthDate, String licenseNumber, Date dateObtention) {
+    public Client(int id, String firstName, String lastName, Date birthDate, String licenseNumber, Date dateObtention) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -88,4 +88,5 @@ public class Clients {
                 ", dateObtention=" + dateObtention +
                 '}';
     }
+
 }
