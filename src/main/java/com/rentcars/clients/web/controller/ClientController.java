@@ -27,15 +27,16 @@ public class ClientController {
     private RestOperations restTemplate = new RestTemplate();
     public ClientController(ClientDao clientDao) {this.clientDao = clientDao;}
 
+    @ApiOperation(value = "Récupère tout les clients existant!")
     @RequestMapping(method = RequestMethod.GET)
-    public List<Client> clientList(){
+    public List<Client> showClientList(){
         List<Client> clients = clientDao.findAll();
         return clients;
     }
 
     @ApiOperation(value = "Récupère un client grâce à son ID à condition que celui-ci soit existant!")
     @GetMapping(value = "/{id}")
-    public Client showClient(@PathVariable int id) { return clientDao.findById(id); }
+    public Client showClientById(@PathVariable int id) { return clientDao.findById(id); }
 
     @ApiOperation(value = "Ajoute un client à la liste")
     @PostMapping

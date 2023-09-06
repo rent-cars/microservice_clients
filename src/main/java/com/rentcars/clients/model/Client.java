@@ -9,7 +9,8 @@ import java.util.Date;
 
 @Entity
 public class Client {
-    @Id@GeneratedValue(strategy= GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private int id;
     @Size(min = 3, max = 25)
     private String firstName;
