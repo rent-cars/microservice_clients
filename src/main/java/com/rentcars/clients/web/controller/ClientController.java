@@ -29,9 +29,19 @@ public class ClientController {
 
     @ApiOperation(value = "Récupère tout les clients existant!")
     @RequestMapping(method = RequestMethod.GET)
-    public List<Client> showClientList(){
-        List<Client> clients = clientDao.findAll();
-        return clients;
+    public List<Client> showClientList(
+            @RequestParam(value = "firstName", required = false) String firstName,
+            @RequestParam(value = "lastName", required = false) String lastName
+            )
+    {
+        if (firstName == null && lastName == null){
+            List<Client> clients = clientDao.findAll();
+            return clients;
+        }else if (lastName == null){
+            return clientDao.findByFirstName(firstName);
+        }else {
+            return clientDao.findByLastName(lastName);
+        }
     }
 
     @ApiOperation(value = "Récupère un client grâce à son ID à condition que celui-ci soit existant!")

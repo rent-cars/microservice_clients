@@ -9,6 +9,9 @@ import java.util.List;
 @Repository
 public interface ClientDao extends JpaRepository<Client, Integer> {
     List<Client> findAll();
+    List<Client> findByFirstName(String firstName);
+    List<Client> findByLastName(String lastName);
+
     Client findById(int id);
     Client save(Client client);
     void deleteById(Integer id);

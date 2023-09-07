@@ -17,7 +17,7 @@ public class Client {
     @Size(min = 3, max = 25)
     private String lastName;
     private Date birthDate;
-    @Size
+    @Size(min = 7)
     private String licenseNumber;
     private Date dateObtention;
 
