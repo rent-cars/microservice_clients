@@ -56,10 +56,11 @@ public class ClientController {
     }
 
     @ApiOperation(value = "Modifie les données d'un client existant")
-    @PutMapping
-    public void modifyClient (@RequestBody Client client){
+    @PutMapping("/{id}")
+    public Client modifyClient (@PathVariable int id, @RequestBody Client client){
+        client.setid(id);
         textException(client);
-        clientDao.save(client);
+        return clientDao.save(client);
     }
     @ApiOperation(value = "Supprime un client existant")
     @DeleteMapping("/{id}")
